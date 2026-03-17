@@ -24,7 +24,10 @@ public class ReservationService : IReservationService
     {
         return await _context.Reservations.ToListAsync();
     }
-
+    public async Task<List<Reservation>> GetByUser(string userId)
+    {
+        return await _context.Reservations.Where(r => r.userId == userId).Include(r => r.Space).Include(r => r.User).ToListAsync();
+    }
     public async Task<Reservation> Create(Reservation reservation, string userProgram)
     {
         if (reservation.endTime <= reservation.startTime)

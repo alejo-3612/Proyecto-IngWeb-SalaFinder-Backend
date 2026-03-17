@@ -7,7 +7,7 @@ namespace SalaFinder.Models
     public class AuditLog
     {
         [Key] 
-        public Guid id_log { get; set; } = Guid.NewGuid();
+        public Guid id_log { get; set; } 
         [Required]
         public string userId { get; set; }
 
@@ -18,6 +18,6 @@ namespace SalaFinder.Models
 
         public string entity { get; set; }
 
-        public DateTime timestamp { get; set; } = DateTime.UtcNow;
+        public DateTime timestamp { get; set; } 
     }
 }

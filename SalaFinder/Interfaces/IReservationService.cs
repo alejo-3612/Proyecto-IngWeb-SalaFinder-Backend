@@ -8,7 +8,7 @@ namespace SalaFinder.Interfaces
         Task<List<Reservation>> GetAll();
 
         Task<Reservation> GetById(Guid id);
-
+        Task<List<Reservation>> GetByUser(string userId);
         Task<Reservation?> Create(Reservation reservation, string userProgram);
 
         Task<bool> Approve(Guid reservationId, string adminId);

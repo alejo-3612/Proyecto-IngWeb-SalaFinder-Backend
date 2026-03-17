@@ -7,7 +7,7 @@ namespace SalaFinder.Models
     public class NoShow
     {
         [Key] 
-        public Guid id { get; set; } = Guid.NewGuid();
+        public Guid id { get; set; }
         [Required]
         public string userId { get; set; }
 

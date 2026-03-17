@@ -31,6 +31,16 @@ namespace SalaFinder.Controllers
             return Ok(reservations);
         }
 
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetByUser(string userId)
+        {
+            var reservations = await _reservationService.GetByUser(userId);
+
+            if (reservations == null || !reservations.Any())
+                return NotFound("No reservations found for this user");
+
+            return Ok(reservations);
+        }
 
         [HttpGet("{id}")]
         [Authorize]
@@ -43,6 +53,7 @@ namespace SalaFinder.Controllers
 
             return Ok(reservation);
         }
+
 
         [HttpPost]
         [Authorize(Roles = "Student,Staff")]

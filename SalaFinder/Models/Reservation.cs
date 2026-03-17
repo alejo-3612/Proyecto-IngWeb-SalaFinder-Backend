@@ -7,7 +7,7 @@ namespace SalaFinder.Models
     public class Reservation
     {
         [Key] 
-        public Guid id_reservation { get; set; } = Guid.NewGuid();
+        public Guid id_reservation { get; set; } 
         [Required]
         public Guid spaceId { get; set; }
 

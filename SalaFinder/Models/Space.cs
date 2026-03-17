@@ -5,7 +5,7 @@ namespace SalaFinder.Models
     public class Space
     {
         [Key] 
-        public Guid id_space { get; set; } = Guid.NewGuid();
+        public Guid id_space { get; set; } 
 
         public string name { get; set; }
 
@@ -20,6 +20,6 @@ namespace SalaFinder.Models
         public string allowedPrograms { get; set; }
 
         public bool requiresApproval { get; set; }
-        public bool isActive { get; set; } = true;
+        public bool isActive { get; set; }
     }
 }

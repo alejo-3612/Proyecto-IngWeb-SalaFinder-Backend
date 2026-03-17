@@ -12,8 +12,8 @@ using SalaFinder.DAO;
 namespace SalaFinder.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260316051357_MigrationSalaFinder4")]
-    partial class MigrationSalaFinder4
+    [Migration("20260317004259_SeedSpace")]
+    partial class SeedSpace
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,6 +140,248 @@ namespace SalaFinder.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "u1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp1",
+                            Email = "user1@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER1@MAIL.COM",
+                            NormalizedUserName = "USER1@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp1",
+                            TwoFactorEnabled = false,
+                            UserName = "user1@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp2",
+                            Email = "user2@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER2@MAIL.COM",
+                            NormalizedUserName = "USER2@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp2",
+                            TwoFactorEnabled = false,
+                            UserName = "user2@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp3",
+                            Email = "user3@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER3@MAIL.COM",
+                            NormalizedUserName = "USER3@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp3",
+                            TwoFactorEnabled = false,
+                            UserName = "user3@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp4",
+                            Email = "user4@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER4@MAIL.COM",
+                            NormalizedUserName = "USER4@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp4",
+                            TwoFactorEnabled = false,
+                            UserName = "user4@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp5",
+                            Email = "user5@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER5@MAIL.COM",
+                            NormalizedUserName = "USER5@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp5",
+                            TwoFactorEnabled = false,
+                            UserName = "user5@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp6",
+                            Email = "user6@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER6@MAIL.COM",
+                            NormalizedUserName = "USER6@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp6",
+                            TwoFactorEnabled = false,
+                            UserName = "user6@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u7",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp7",
+                            Email = "user7@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER7@MAIL.COM",
+                            NormalizedUserName = "USER7@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp7",
+                            TwoFactorEnabled = false,
+                            UserName = "user7@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp8",
+                            Email = "user8@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER8@MAIL.COM",
+                            NormalizedUserName = "USER8@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp8",
+                            TwoFactorEnabled = false,
+                            UserName = "user8@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp9",
+                            Email = "user9@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER9@MAIL.COM",
+                            NormalizedUserName = "USER9@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp9",
+                            TwoFactorEnabled = false,
+                            UserName = "user9@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u10",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp10",
+                            Email = "user10@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER10@MAIL.COM",
+                            NormalizedUserName = "USER10@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp10",
+                            TwoFactorEnabled = false,
+                            UserName = "user10@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u11",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp11",
+                            Email = "user11@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER11@MAIL.COM",
+                            NormalizedUserName = "USER11@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp11",
+                            TwoFactorEnabled = false,
+                            UserName = "user11@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u12",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp12",
+                            Email = "user12@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER12@MAIL.COM",
+                            NormalizedUserName = "USER12@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp12",
+                            TwoFactorEnabled = false,
+                            UserName = "user12@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u13",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp13",
+                            Email = "user13@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER13@MAIL.COM",
+                            NormalizedUserName = "USER13@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp13",
+                            TwoFactorEnabled = false,
+                            UserName = "user13@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u14",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp14",
+                            Email = "user14@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER14@MAIL.COM",
+                            NormalizedUserName = "USER14@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp14",
+                            TwoFactorEnabled = false,
+                            UserName = "user14@mail.com"
+                        },
+                        new
+                        {
+                            Id = "u15",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "stamp15",
+                            Email = "user15@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER15@MAIL.COM",
+                            NormalizedUserName = "USER15@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMockHash",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp15",
+                            TwoFactorEnabled = false,
+                            UserName = "user15@mail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -354,6 +596,80 @@ namespace SalaFinder.Migrations
                     b.HasKey("id_space");
 
                     b.ToTable("Spaces");
+
+                    b.HasData(
+                        new
+                        {
+                            id_space = new Guid("11111111-1111-1111-1111-111111111111"),
+                            allowedPrograms = "Zoom, Teams",
+                            building = "A",
+                            capacity = 10,
+                            isActive = true,
+                            name = "Sala Innovacion",
+                            requiresApproval = false,
+                            resources = "TV, Whiteboard",
+                            type = "Meeting"
+                        },
+                        new
+                        {
+                            id_space = new Guid("22222222-2222-2222-2222-222222222222"),
+                            allowedPrograms = "Zoom",
+                            building = "A",
+                            capacity = 8,
+                            isActive = true,
+                            name = "Sala Creativa",
+                            requiresApproval = false,
+                            resources = "TV",
+                            type = "Meeting"
+                        },
+                        new
+                        {
+                            id_space = new Guid("33333333-3333-3333-3333-333333333333"),
+                            allowedPrograms = "Teams, Zoom",
+                            building = "B",
+                            capacity = 50,
+                            isActive = true,
+                            name = "Auditorio Central",
+                            requiresApproval = true,
+                            resources = "Projector, Microphone",
+                            type = "Conference"
+                        },
+                        new
+                        {
+                            id_space = new Guid("44444444-4444-4444-4444-444444444444"),
+                            allowedPrograms = "Python, VSCode",
+                            building = "C",
+                            capacity = 20,
+                            isActive = true,
+                            name = "Laboratorio Digital",
+                            requiresApproval = true,
+                            resources = "Computers",
+                            type = "Lab"
+                        },
+                        new
+                        {
+                            id_space = new Guid("55555555-5555-5555-5555-555555555555"),
+                            allowedPrograms = "Zoom, Teams",
+                            building = "B",
+                            capacity = 12,
+                            isActive = true,
+                            name = "Sala Ejecutiva",
+                            requiresApproval = true,
+                            resources = "TV, Conference Phone",
+                            type = "Meeting"
+                        },
+                        new
+                        {
+                            id_space = new Guid("66666666-6666-6666-6666-666666666666"),
+                            allowedPrograms = "None",
+                            building = "D",
+                            capacity = 25,
+                            isActive = true,
+                            name = "Sala Taller",
+                            requiresApproval = false,
+                            resources = "Whiteboard, Projector",
+                            type = "Workshop"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

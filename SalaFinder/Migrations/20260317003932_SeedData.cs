@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace SalaFinder.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationName : Migration
+    public partial class SeedData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,54 +50,6 @@ namespace SalaFinder.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AuditLogs",
-                columns: table => new
-                {
-                    id_log = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    userId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    action = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    entity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    timestamp = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AuditLogs", x => x.id_log);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "NoShows",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    userId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    count = table.Column<int>(type: "int", nullable: false),
-                    blockedUntil = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_NoShows", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reservations",
-                columns: table => new
-                {
-                    id_reservation = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    spaceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    userId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    startTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    endTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    purpose = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    attendeeCount = table.Column<int>(type: "int", nullable: false),
-                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reservations", x => x.id_reservation);
                 });
 
             migrationBuilder.CreateTable(
@@ -223,6 +177,100 @@ namespace SalaFinder.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AuditLogs",
+                columns: table => new
+                {
+                    id_log = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    userId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    action = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    entity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    timestamp = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AuditLogs", x => x.id_log);
+                    table.ForeignKey(
+                        name: "FK_AuditLogs_AspNetUsers_userId",
+                        column: x => x.userId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NoShows",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    userId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    count = table.Column<int>(type: "int", nullable: false),
+                    blockedUntil = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NoShows", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_NoShows_AspNetUsers_userId",
+                        column: x => x.userId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reservations",
+                columns: table => new
+                {
+                    id_reservation = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    spaceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    userId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    startTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    endTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    purpose = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    attendeeCount = table.Column<int>(type: "int", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservations", x => x.id_reservation);
+                    table.ForeignKey(
+                        name: "FK_Reservations_AspNetUsers_userId",
+                        column: x => x.userId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reservations_Spaces_spaceId",
+                        column: x => x.spaceId,
+                        principalTable: "Spaces",
+                        principalColumn: "id_space",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "u1", 0, "stamp1", "user1@mail.com", true, false, null, "USER1@MAIL.COM", "USER1@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp1", false, "user1@mail.com" },
+                    { "u10", 0, "stamp10", "user10@mail.com", true, false, null, "USER10@MAIL.COM", "USER10@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp10", false, "user10@mail.com" },
+                    { "u11", 0, "stamp11", "user11@mail.com", true, false, null, "USER11@MAIL.COM", "USER11@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp11", false, "user11@mail.com" },
+                    { "u12", 0, "stamp12", "user12@mail.com", true, false, null, "USER12@MAIL.COM", "USER12@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp12", false, "user12@mail.com" },
+                    { "u13", 0, "stamp13", "user13@mail.com", true, false, null, "USER13@MAIL.COM", "USER13@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp13", false, "user13@mail.com" },
+                    { "u14", 0, "stamp14", "user14@mail.com", true, false, null, "USER14@MAIL.COM", "USER14@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp14", false, "user14@mail.com" },
+                    { "u15", 0, "stamp15", "user15@mail.com", true, false, null, "USER15@MAIL.COM", "USER15@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp15", false, "user15@mail.com" },
+                    { "u2", 0, "stamp2", "user2@mail.com", true, false, null, "USER2@MAIL.COM", "USER2@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp2", false, "user2@mail.com" },
+                    { "u3", 0, "stamp3", "user3@mail.com", true, false, null, "USER3@MAIL.COM", "USER3@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp3", false, "user3@mail.com" },
+                    { "u4", 0, "stamp4", "user4@mail.com", true, false, null, "USER4@MAIL.COM", "USER4@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp4", false, "user4@mail.com" },
+                    { "u5", 0, "stamp5", "user5@mail.com", true, false, null, "USER5@MAIL.COM", "USER5@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp5", false, "user5@mail.com" },
+                    { "u6", 0, "stamp6", "user6@mail.com", true, false, null, "USER6@MAIL.COM", "USER6@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp6", false, "user6@mail.com" },
+                    { "u7", 0, "stamp7", "user7@mail.com", true, false, null, "USER7@MAIL.COM", "USER7@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp7", false, "user7@mail.com" },
+                    { "u8", 0, "stamp8", "user8@mail.com", true, false, null, "USER8@MAIL.COM", "USER8@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp8", false, "user8@mail.com" },
+                    { "u9", 0, "stamp9", "user9@mail.com", true, false, null, "USER9@MAIL.COM", "USER9@MAIL.COM", "AQAAAAEAACcQAAAAEMockHash", null, false, "stamp9", false, "user9@mail.com" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -261,6 +309,26 @@ namespace SalaFinder.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AuditLogs_userId",
+                table: "AuditLogs",
+                column: "userId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NoShows_userId",
+                table: "NoShows",
+                column: "userId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_spaceId",
+                table: "Reservations",
+                column: "spaceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_userId",
+                table: "Reservations",
+                column: "userId");
         }
 
         /// <inheritdoc />
@@ -291,13 +359,13 @@ namespace SalaFinder.Migrations
                 name: "Reservations");
 
             migrationBuilder.DropTable(
-                name: "Spaces");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Spaces");
         }
     }
 }
